@@ -17,10 +17,25 @@ exports.Register = async(req,res)=>{
     }
 }
 
-
 exports.Login = async(req,res)=>{
     try {
         res.render("login")       
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+exports.NewCustomer = async(req,res)=>{
+    try {
+        res.render("createCtmr");      
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+exports.Tyres = async(req,res)=>{
+    try {
+        res.render("addtyre");      
     } catch (error) {
         console.log(error)
     }

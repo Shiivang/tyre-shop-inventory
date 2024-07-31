@@ -27,6 +27,8 @@ const ownerModel = mongoose.Schema({
         trim: true,
         maxlength: 50
       },
+      customers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'customer',}],
+      Tyers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Tyre',}]
 });
 
 ownerModel.plugin(plm);

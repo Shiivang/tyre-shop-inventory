@@ -5,7 +5,7 @@
 
 <form 
 class="px-7 h-screen grid justify-center items-center"
-action="/users/register"
+action="/users/customer-form"
 method="post"
 >
     <div class="grid gap-6" >
@@ -14,7 +14,7 @@ method="post"
         class="capitalize shadow-2xl p-3  w-full outline-none focus:border-solid focus:border-[1px] border-[#035ec5] placeholder:text-black"
          type="text"
          placeholder="First Name" 
-         name="firstName"
+         name="firstName" 
          >
         <input 
         class="p-3 capitalize shadow-2xl  glass w-full placeholder:text-black outline-none focus:border-solid focus:border-[1px] border-[#035ec5]" 
@@ -33,24 +33,46 @@ method="post"
         <input 
         class="p-3 shadow-2xl   glass w-full text-black placeholder:text-black outline-none focus:border-solid focus:border-[1px]border-[#035ec5]" 
         type="text" 
-        name="username"
-        placeholder="Username"
+         name="phone"
+        placeholder="Phone Number"
+       >
+       <h2>Address</h2>
+       <input 
+       class="p-3 shadow-2xl   glass w-full text-black placeholder:text-black outline-none focus:border-solid focus:border-[1px]border-[#035ec5]" 
+       type="text" 
+       name="street" 
+       placeholder="Street"
+      >
+      <input 
+      class="p-3 shadow-2xl   glass w-full text-black placeholder:text-black outline-none focus:border-solid focus:border-[1px]border-[#035ec5]" 
+      type="text" 
+      name="city"
+     placeholder="City"
      >
      <input 
-     class="p-3 glass shadow-2xl  w-full placeholder:text-black outline-none focus:border-solid focus:border-[1px] border-[#035ec5]" type="password" 
-     placeholder="Password" 
-     name="password" 
-     >
+     class="p-3 shadow-2xl   glass w-full text-black placeholder:text-black outline-none focus:border-solid focus:border-[1px]border-[#035ec5]" 
+     type="text" 
+     name="state" 
+     placeholder="State"
+    >
+    <input 
+    class="p-3 shadow-2xl   glass w-full text-black placeholder:text-black outline-none focus:border-solid focus:border-[1px]border-[#035ec5]" 
+    type="text" 
+    name="zip"
+     placeholder="ZIP"
+   >
+  
       </div>
      
       <button 
       class="outline-none glass shadow-2xl  w-full p-3  bg-[#ffffff42] hover:border-[#035ec5] hover:border-solid hover:border-[1px]  hover:text-[#035ec5] font-bold" 
      >
-      Submit
+     Add Customer
     </button>
     </div>
   </form>
 
 </div>
 
-<%- include("./parcials/footer") %>
+<%- include("./parcials/footer") %>  
+ 
