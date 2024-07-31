@@ -39,7 +39,7 @@ exports.Logout = async (req,res,next)=>{
     try {
         req.logout(
             ()=>{
-                res.redirect("/login")
+                res.redirect("/login");
             }
         )        
     } catch (error) {
@@ -47,7 +47,8 @@ exports.Logout = async (req,res,next)=>{
     }
 };
 
-exports.Customer = async (req,res,next)=>{
+exports.Customer = async (req,res)=>{
+   
     try {
     const customer = new CustomerModel({
         firstName: req.body.firstName ,
@@ -65,6 +66,34 @@ exports.Customer = async (req,res,next)=>{
     
     await req.user.customers.push(customer._id);
     await req.user.save();
+
+    const customerId = customer._id;
+    const { tyermodel, quantity } = req.body;
+    const tire1 = await tyreModel.findOne({ model: req.body.tyermodel});
+
+
+    const tireId = await tire1._id ;
+    
+    const tire = await tyreModel.findById(tireId);
+    if (!tire) return res.json({ error: 'Tire not found' });
+
+    // Find the customer and add purchase
+    const customer2 = await CustomerModel.findById(customerId);
+    if (!customer2) return res.json({ error: 'Customer not found' });
+
+    customer.purchaseHistory.push({
+      tire: tireId,
+      quantity,
+      purchaseDate: new Date(),
+    });
+
+   
+    tire.stock -= quantity;
+    if (tire.stock < 0) return res.json({ error: 'Not enough stock' });
+
+    await customer.save();
+    await tire.save();
+
     res.redirect("/");
           
     } catch (error) {
@@ -74,6 +103,7 @@ exports.Customer = async (req,res,next)=>{
 
 exports.Tyerss = async (req,res,next)=>{
     try {
+
 
         const newTyre = new tyreModel({
             brand: req.body.brand ,
@@ -85,8 +115,9 @@ exports.Tyerss = async (req,res,next)=>{
         })
 
     await newTyre.save();
+
     
-    await req.user.Tyres.push(newTyre._id);
+    await req.user.Tyers.push(newTyre._id);
     await req.user.save();
     res.redirect("/");
           

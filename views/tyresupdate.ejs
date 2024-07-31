@@ -1,0 +1,66 @@
+<%- include("./parcials/header") %>
+
+<div class="w-full h-[100vh] bg-[#F3F7EC]">
+  <%- include("./nav") %>
+
+<form 
+class="px-7 h-screen grid justify-center items-center"
+action="/tyres/tyre-update/<%= tyres._id %>"
+method="post"
+>
+    <div class="grid gap-6" >
+      <div class="w-full flex gap-3">
+        <input 
+        class="capitalize shadow-2xl p-3  w-full outline-none focus:border-solid focus:border-[1px] border-[#035ec5] placeholder:text-black"
+         type="text"
+         placeholder="Brand" 
+         name="brand"
+         value="<%= tyres.brand %>"
+         >
+        <input 
+        class="p-3 capitalize shadow-2xl  glass w-full placeholder:text-black outline-none focus:border-solid focus:border-[1px] border-[#035ec5]" 
+        type="text" 
+        placeholder="Model" 
+        name="model"
+        value="<%= tyres.model %>"
+        >
+      </div>
+      <div class="grid gap-6 w-full">
+       
+        <input 
+        class="p-3 shadow-2xl   glass w-full text-black placeholder:text-black outline-none focus:border-solid focus:border-[1px]border-[#035ec5]" 
+        type="text" 
+        name="size"
+        placeholder="Size"
+        value="<%= tyres.size %>"
+       >
+       <input 
+       class="p-3 shadow-2xl   glass w-full text-black placeholder:text-black outline-none focus:border-solid focus:border-[1px]border-[#035ec5]" 
+       type="number" 
+       name="price" 
+       placeholder="Price"
+       value="<%= tyres.price %>"
+      >
+      <input 
+      class="p-3 shadow-2xl   glass w-full text-black placeholder:text-black outline-none focus:border-solid focus:border-[1px]border-[#035ec5]" 
+      type="number" 
+      name="stock"
+     placeholder="Stock"
+     value="<%= tyres.stock %>"
+     min="0"
+     >
+      
+      </div>
+     
+      <button 
+      class="outline-none glass shadow-2xl  w-full p-3  bg-[#ffffff42] hover:border-[#035ec5] hover:border-solid hover:border-[1px]  hover:text-[#035ec5] font-bold" 
+     >
+     Add Customer
+    </button>
+    </div>
+  </form>
+
+</div>
+
+<%- include("./parcials/footer") %>  
+ 

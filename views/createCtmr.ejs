@@ -4,7 +4,7 @@
   <%- include("./nav") %>
 
 <form 
-class="px-7 h-screen grid justify-center items-center"
+class="px-7 py-7 h-screen grid justify-center items-center"
 action="/users/customer-form"
 method="post"
 >
@@ -49,6 +49,7 @@ method="post"
       name="city"
      placeholder="City"
      >
+     <div class="w-full flex gap-3">
      <input 
      class="p-3 shadow-2xl   glass w-full text-black placeholder:text-black outline-none focus:border-solid focus:border-[1px]border-[#035ec5]" 
      type="text" 
@@ -61,8 +62,41 @@ method="post"
     name="zip"
      placeholder="ZIP"
    >
+  </div>
+   
   
       </div>
+
+
+
+      <h2>Tyre</h2>
+   <div class="w-full flex gap-3">
+   <input 
+   class="p-3 shadow-2xl   glass w-full text-black placeholder:text-black outline-none focus:border-solid focus:border-[1px]border-[#035ec5]" 
+   type="number" 
+   name="quantity"
+  placeholder="quantity"
+  >
+  <select name="tyermodel" id="tyermodel"  class="p-3 shadow-2xl   glass w-full text-black placeholder:text-black outline-none focus:border-solid focus:border-[1px]border-[#035ec5]" 
+  >
+  <% tyres.forEach((T)=>{%>
+   
+    <option value="<%= T.model %>">Model <%= T.model %></option>
+  
+  <%})%>
+</select>
+
+</div>
+
+<select name="tyersize" id="tyersize"  class="p-3 shadow-2xl   glass w-full text-black placeholder:text-black outline-none focus:border-solid focus:border-[1px]border-[#035ec5]" 
+>
+<% tyres.forEach((T)=>{%>
+ 
+  <option value="<%= T.size %>">Size <%= T.size %></option>
+
+<%})%>
+</select>
+
      
       <button 
       class="outline-none glass shadow-2xl  w-full p-3  bg-[#ffffff42] hover:border-[#035ec5] hover:border-solid hover:border-[1px]  hover:text-[#035ec5] font-bold" 
@@ -70,6 +104,7 @@ method="post"
      Add Customer
     </button>
     </div>
+
   </form>
 
 </div>

@@ -18,8 +18,9 @@ const tyreSchema = new mongoose.Schema({
     },
     stock: { 
         type: Number,
-          min: 0 },
-    owner: { type: mongoose.Schema.Types.ObjectId, ref: 'owner',},
+          min: 0 
+        },
+    owner: { type: mongoose.Schema.Types.ObjectId, ref: 'owner'},
     // createdAt: { type: Date, default: Date.now },
   });
 

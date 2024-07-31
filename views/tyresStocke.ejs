@@ -1,0 +1,18 @@
+<%- include("./parcials/header") %>
+<div class="w-[100vw] h-[100vh] bg-[#F3F7EC] relative flex justify-end items-end " >
+    <%- include("./nav") %>
+
+    <div class="w-[85vw] h-[90vh] p-8 bg-zinc-500 flex flex-col gap-3">
+        <% tyres.forEach((T)=>{%>
+        <div class="w-full h-[15vh] flex bg-zinc-300">
+            <h1><%= T.model %></h1>
+            <a href="/tyres/update/<%= T._id %>">update</a>
+            <a href="/tyres/delete/<%= T._id %>">delete</a>
+        </div>
+        <%})%>
+    </div>
+
+</div>
+
+
+<%- include("./parcials/footer") %>
