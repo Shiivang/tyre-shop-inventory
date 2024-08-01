@@ -56,10 +56,11 @@ exports.TyresStocke = async(req,res)=>{
 
 exports.Records = async(req,res)=>{
     try {
-        const tyreo = await tyreModel.find().populate("owner");
-        const customer = await costomerModel.find().populate("owner");
+        const customer = await costomerModel.find();
 
-        res.render("customerRecored" , { tyres: tyreo , customer : customer });
+        
+
+        res.render("customerRecored" , {  customer : customer });
        
         
     } catch (error) {
