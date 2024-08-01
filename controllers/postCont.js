@@ -71,8 +71,8 @@ exports.Customer = async (req,res)=>{
     const { tyermodel, quantity } = req.body;
     const tire1 = await tyreModel.findOne({ model: req.body.tyermodel});
 
+    const tireId = tire1._id ;
 
-    const tireId = await tire1._id ;
     
     const tire = await tyreModel.findById(tireId);
     if (!tire) return res.json({ error: 'Tire not found' });
@@ -82,7 +82,7 @@ exports.Customer = async (req,res)=>{
     if (!customer2) return res.json({ error: 'Customer not found' });
 
     customer.purchaseHistory.push({
-      tire: tireId,
+      tyre: tireId,
       quantity,
       purchaseDate: new Date(),
     });
@@ -94,7 +94,7 @@ exports.Customer = async (req,res)=>{
     await customer.save();
     await tire.save();
 
-    res.redirect("/");
+    res.redirect("/recordCtmr");
           
     } catch (error) {
         console.log(error);
@@ -119,7 +119,7 @@ exports.Tyerss = async (req,res,next)=>{
     
     await req.user.Tyers.push(newTyre._id);
     await req.user.save();
-    res.redirect("/");
+    res.redirect("/tyreStoke");
           
     } catch (error) {
         console.log(error);

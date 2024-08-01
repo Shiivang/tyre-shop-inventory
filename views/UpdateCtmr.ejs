@@ -5,7 +5,7 @@
 
 <form 
 class="px-7 py-7 h-screen grid justify-center items-center"
-action="/tyers/update-customer-form/<%= customer._id %>"
+action="/tyres/update-customer-form/<%= customer._id %>"
 method="post"
 >
 <h1 class="text-3xl ">Update Customer</h1>
@@ -24,6 +24,7 @@ method="post"
         type="text" 
         placeholder="Last Name" 
         name="lastName"
+        value="<%= customer.lastName %>"
         >
       </div>
       <div class="grid gap-6 w-full">
@@ -32,12 +33,14 @@ method="post"
         type="text" 
         placeholder="Email" 
         name="email"
+        value="<%= customer.email %>"
         >
         <input 
         class="p-3 shadow-2xl   glass w-full text-black placeholder:text-black outline-none focus:border-solid focus:border-[1px]border-[#035ec5]" 
         type="text" 
          name="phone"
         placeholder="Phone Number"
+        value="<%= customer.phone %>"
        >
        <h2>Address</h2>
        <input 
@@ -45,12 +48,14 @@ method="post"
        type="text" 
        name="street" 
        placeholder="Street"
+       value="<%= customer.street %>"
       >
       <input 
       class="p-3 shadow-2xl   glass w-full text-black placeholder:text-black outline-none focus:border-solid focus:border-[1px]border-[#035ec5]" 
       type="text" 
       name="city"
      placeholder="City"
+     value="<%= customer.city %>"
      >
      <div class="w-full flex gap-3">
      <input 
@@ -58,12 +63,14 @@ method="post"
      type="text" 
      name="state" 
      placeholder="State"
+     value="<%= customer.state %>"
     >
     <input 
     class="p-3 shadow-2xl   glass w-full text-black placeholder:text-black outline-none focus:border-solid focus:border-[1px]border-[#035ec5]" 
     type="text" 
     name="zip"
      placeholder="ZIP"
+     value="<%= customer.zip %>"
    >
   </div>
    
@@ -73,16 +80,28 @@ method="post"
 
 
       <h2>Tyre</h2>
-   <div class="w-full flex gap-3">
-   <input 
-   class="p-3 shadow-2xl   glass w-full text-black placeholder:text-black outline-none focus:border-solid focus:border-[1px]border-[#035ec5]" 
-   type="number" 
-   name="quantity"
-  placeholder="quantity"
-  >
- 
-</div>
-
+      
+      <div class="w-full flex gap-3">
+        <input 
+        class="p-3 shadow-2xl   glass w-full text-black placeholder:text-black outline-none focus:border-solid focus:border-[1px]border-[#035ec5]" 
+        type="number" 
+        name="quantity"
+       placeholder="quantity"
+       value="<%= quantity1  %>"
+       >
+       
+       <select name="tyermodel" id="tyermodel" class="p-3 shadow-2xl   glass w-full text-black placeholder:text-black outline-none focus:border-solid focus:border-[1px]border-[#035ec5]" 
+       >
+       <option value="<%= MOD.model %>">Model <%= MOD.model %></option>
+       <% Tall.forEach((TT)=>{%>
+        
+        <option value="<%= TT.model %>">Model <%= TT.model %></option>
+        <%})%>
+    
+     </select>
+    
+     </div>
+     
      
       <button 
       class="outline-none glass shadow-2xl  w-full p-3  bg-[#ffffff42] hover:border-[#035ec5] hover:border-solid hover:border-[1px]  hover:text-[#035ec5] font-bold" 
