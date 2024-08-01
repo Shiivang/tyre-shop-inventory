@@ -1,14 +1,16 @@
 <%- include("./parcials/header") %>
 
-<div class="w-[100wh] h-[100vh] bg-[#F3F7EC]">
+<div class="w-[100vw] h-[100vh] bg-[#F3F7EC]">
   <%- include("./nav") %>
 
 <form 
-class="px-7 w-full h-screen flex justify-center items-center"
+class=" px-7 w-full h-screen flex justify-center items-center"
 action="/users/login"
 method="post"
 >
-    <div class="grid gap-6 w-[40%]"  >
+    <div class="grid gap-6 md:w-1/2 w-full  "  >
+      <h1 class="text-3xl ">Log In</h1>
+      <h2>Details</h2>
      
       <div class="grid gap-6 w-full">
        

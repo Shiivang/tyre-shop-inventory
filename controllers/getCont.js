@@ -1,7 +1,10 @@
 const tyreModel = require("../models/tyreSchema");
+const costomerModel = require("../models/costomerSchema");
 exports.Homepage = async(req,res)=>{
     try {
-        res.render("index")
+        const tyreo = await tyreModel.find().populate("owner");
+        res.render("index" , { tyres: tyreo });
+       
         
     } catch (error) {
         console.log(error)
@@ -51,3 +54,15 @@ exports.TyresStocke = async(req,res)=>{
     }
 }
 
+exports.Records = async(req,res)=>{
+    try {
+        const tyreo = await tyreModel.find().populate("owner");
+        const customer = await costomerModel.find().populate("owner");
+
+        res.render("customerRecored" , { tyres: tyreo , customer : customer });
+       
+        
+    } catch (error) {
+        console.log(error)
+    }
+}
