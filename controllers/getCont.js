@@ -2,7 +2,7 @@ const tyreModel = require("../models/tyreSchema");
 const costomerModel = require("../models/costomerSchema");
 exports.Homepage = async(req,res)=>{
     try {
-        const tyreo = await tyreModel.find().populate("owner");
+        const tyreo = await tyreModel.find();
         res.render("index" , { tyres: tyreo });
        
         
