@@ -59,6 +59,7 @@ exports.Customer = async (req,res)=>{
         city: req.body.city ,
         state: req.body.state ,
         zip: req.body.zip ,
+        tyermodel: req.body.tyermodel ,
         owner: req.user._id
     });
 

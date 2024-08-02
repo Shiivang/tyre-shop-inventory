@@ -58,8 +58,6 @@ exports.Records = async(req,res)=>{
     try {
         const customer = await costomerModel.find();
 
-        
-
         res.render("customerRecored" , {  customer : customer });
        
         

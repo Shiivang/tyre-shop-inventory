@@ -1,6 +1,5 @@
 const tyreModel = require("../models/tyreSchema");
 const costomerModel = require("../models/costomerSchema");
-const { model } = require("mongoose");
 
 exports.TyerUpdate = async(req,res)=>{
     try {
@@ -44,13 +43,11 @@ exports.CustomerUpdate = async(req,res)=>{
            quantity1 = m.quantity
         });
 
-        console.log(quantity1)
-
         const MOD = await tyreModel.findOne({_id :  tyreId  });
         const Tall = await tyreModel.find();
           
 
-        res.render("UpdateCtmr" , {customer : customer , quantity1 :quantity1 ,MOD : MOD ,Tall : Tall});
+        res.render("UpdateCtmr" , {customer : customer , quantity :quantity1 ,MOD : MOD ,Tall : Tall});
  } catch (error) {
         console.log(error)
     }
@@ -69,6 +66,16 @@ exports.Customer_Update = async(req,res)=>{
 
     const tireId = tire1._id ;
 
+    const popo = updateCustomer.purchaseHistory;
+   
+    updateCustomer.purchaseHistory.pop({});
+
+    updateCustomer.purchaseHistory.push({
+        tyre: tireId,
+        quantity,
+        purchaseDate: new Date(),
+      });
+
     
     const tire = await tyreModel.findById(tireId);
     if (!tire) return res.json({ error: 'Tire not found' });
@@ -77,23 +84,21 @@ exports.Customer_Update = async(req,res)=>{
     const customer2 = await costomerModel.findById(customerId);
     if (!customer2) return res.json({ error: 'Customer not found' });
 
-    updateCustomer.purchaseHistory.push({
-      tyre: tireId,
-      quantity,
-      purchaseDate: new Date(),
-    });
-
+  
    
     tire.stock -= quantity;
     if (tire.stock < 0) return res.json({ error: 'Not enough stock' });
-
+    
+    // await purchaseId.save();
     await updateCustomer.save();
     await tire.save();
+
+    
         
          res.redirect("/recordCtmr");
  } catch (error) {
         console.log(error)
-    }
+    } 
 }
 
 exports.CustomerDelete = async(req,res)=>{
