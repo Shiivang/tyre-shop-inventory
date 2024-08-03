@@ -3,7 +3,10 @@ const costomerModel = require("../models/costomerSchema");
 exports.Homepage = async(req,res)=>{
     try {
         const tyreo = await tyreModel.find();
-        res.render("index" , { tyres: tyreo });
+        const costm = await costomerModel.find();
+        
+
+        res.render("index" , { tyres: tyreo , costm :costm});
        
         
     } catch (error) {
