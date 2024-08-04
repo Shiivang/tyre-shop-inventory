@@ -4,7 +4,7 @@ const costomerModel = require("../models/costomerSchema");
 exports.TyerUpdate = async(req,res)=>{
     try {
         const tyreo = await tyreModel.findById(req.params.id);
-        res.render("tyresupdate" ,{tyres : tyreo} );
+        res.render("tyresupdate" ,{tyres : tyreo , user : req.user} );
  } catch (error) {
         console.log(error)
     }
@@ -26,7 +26,7 @@ exports.TyerDelete = async(req,res)=>{
     try {
         const deleteTyer = await tyreModel.findByIdAndDelete(req.params.id);
         
-         res.redirect("/tyreStoke");
+         res.redirect("/tyreStoke" ,{user : req.user} );
        
  } catch (error) {
         console.log(error)
@@ -43,7 +43,7 @@ exports.CustomerUpdate = async(req,res)=>{
            quantity1 = m.quantity
         });
 
-        const MOD = await tyreModel.findOne({_id :  tyreId  });
+        const MOD = await tyreModel.findOne({_id :  tyreId  , user : req.user});
         const Tall = await tyreModel.find();
           
 
@@ -105,7 +105,7 @@ exports.CustomerDelete = async(req,res)=>{
     try {
         await costomerModel.findByIdAndDelete(req.params.id);
         
-        res.redirect("/recordCtmr");       
+        res.redirect("/recordCtmr", {user : req.user});       
  } catch (error) {
         console.log(error)
     }
