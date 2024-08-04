@@ -1,13 +1,13 @@
 var express = require('express');
 const { Register, Homepage , Login , NewCustomer, Tyres, TyresStocke, Records} = require('../controllers/getCont');
-const { isloggedin } = require('../utils/meddelware');
+const { isloggedin, isNotAuthenticated } = require('../utils/meddelware');
 var router = express.Router();
 
 router.get('/',isloggedin, Homepage);
 
-router.get('/register',Register);
+router.get('/register',isNotAuthenticated,Register);
 
-router.get('/login',Login);
+router.get('/login',isNotAuthenticated , Login);
 
 router.get("/createCtmr" ,isloggedin, NewCustomer );
 

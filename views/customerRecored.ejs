@@ -2,15 +2,18 @@
 <div class="relative w-[100vw] h-[100vh] bg-[#F3F7EC] relative flex md:justify-end items-end " >
     <%- include("./nav") %>
 
-    <div id="hello" class=" relative w-full md:w-[89vw] h-[90vh]  pt-16 bg-[#e8eddf] py-10 shadow-md rounded-xl overflow-scroll ">
+    <div id="hello"
+     class="relative md:w-[89vw] w-full h-[90vh]  bg-[#e8eddf] py-2 shadow-md rounded-xl flex flex-col overflow-scroll ">
+        
         <h1
-      class="fixed text-3xl w-full rounded-lg md:w-[87vw] h-16 glass font-semibold  bg-[#e8eddf] text-center top-[10%] z-50 p-4"
-    >CUSTOMERS</h1>
-        <div class="flex md:flex-wrap flex-col md:flex-row md:justify-start p-1 px-4 gap-4 ">
-        <% customer.forEach((C)=>{%>
-
+        class=" text-3xl w-full rounded-lg md:w-[87vw]  glass font-semibold text-center bg-[#e8eddf] p-2">CUSTOMERS</h1>
+        <div 
+        id="hello"
+        class="flex h-full md:flex-wrap flex-col  md:flex-row md:justify-start py-1 md:pb-1 pb-12 px-4 gap-4  overflow-scroll ">
+        <% owner.customers.forEach((C)=>{%>
+ 
             
-        <div class=" w-full md:w-[28vw] min-h-[30vh] rounded-[20px] shadow-md  bg-zinc-300 text-pretty shrink-0 py-2 px-3 pb-4">
+        <div class=" w-full md:w-[28vw] min-h-[30vh] md:h-[30vh] rounded-[20px] shadow-md  bg-zinc-300 text-pretty shrink-0 py-2 px-3 pb-4">
          <h2 class="text-3xl font-medium tracking-tighter md:text-2xl mb-2 capitalize " >  <%= C.firstName %> <%= C.lastName %></h2>
          <h3 class="capitalize text-md text-gray-700 font-semibold"><span class="text-gray-500" >contect - </span><%= C.phone %> <br> <span class="text-gray-500 ">Email - </span><%= C.email %></h3>
          <p class="capitalize text-md text-gray-700 font-semibold"><span class="text-gray-500">address - </span><span><%= C.street %></span> , <span><%= C.city %></span> , <span><%= C.state %></span> , <span><%= C.zip %></span></p>

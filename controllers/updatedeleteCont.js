@@ -26,7 +26,7 @@ exports.TyerDelete = async(req,res)=>{
     try {
         const deleteTyer = await tyreModel.findByIdAndDelete(req.params.id);
         
-         res.redirect("/tyreStoke" ,{user : req.user} );
+         res.redirect("/tyreStoke" );
        
  } catch (error) {
         console.log(error)
@@ -43,11 +43,11 @@ exports.CustomerUpdate = async(req,res)=>{
            quantity1 = m.quantity
         });
 
-        const MOD = await tyreModel.findOne({_id :  tyreId  , user : req.user});
+        const MOD = await tyreModel.findOne({_id :  tyreId });
         const Tall = await tyreModel.find();
           
 
-        res.render("UpdateCtmr" , {customer : customer , quantity :quantity1 ,MOD : MOD ,Tall : Tall});
+        res.render("UpdateCtmr" , {customer : customer , quantity :quantity1 ,MOD : MOD ,Tall : Tall , user : req.user});
  } catch (error) {
         console.log(error)
     }
@@ -105,7 +105,7 @@ exports.CustomerDelete = async(req,res)=>{
     try {
         await costomerModel.findByIdAndDelete(req.params.id);
         
-        res.redirect("/recordCtmr", {user : req.user});       
+        res.redirect("/recordCtmr");       
  } catch (error) {
         console.log(error)
     }

@@ -6,13 +6,18 @@
 
   <div
     id="hello"
-    class=" relative md:w-[89vw] w-full h-[90vh] p-4 pt-16 py-10 shadow-md rounded-xl bg-[#e8eddf] flex flex-col overflow-scroll items-center gap-3"
+    class="relative md:w-[89vw] w-full h-[90vh] p-2 bg-[#e8eddf] py-2 shadow-md rounded-xl flex flex-col overflow-scroll "
   >
-    <h1
-      class="fixed text-3xl w-full rounded-lg md:w-[87vw] h-16 glass font-semibold text-center bg-[#e8eddf] top-[10%] z-50 p-4"
-    >INVENTORY
-    </h1>
-    <% tyres.forEach((T)=>{%>
+  <h1 class=" text-3xl w-full rounded-lg md:w-[87vw]  glass font-semibold text-center bg-[#e8eddf] p-2">INVENTORY</h1>
+
+    
+    <div 
+    id="hello"
+    class="flex h-full md:flex-wrap flex-col  md:justify-start py-1 md:pb-1 pb-10 gap-3  overflow-scroll ">
+
+    
+
+    <% owner.Tyers.forEach((T)=>{%>
     <div
       class="w-full  h-[25vh] md:h-[15vh] glass flex justify-between items-center p-4 bg-zinc-300 rounded-lg shrink-0"
     >
@@ -83,6 +88,7 @@
       </div>
     </div>
     <%})%>
+    </div>
   </div>
 </div>
 

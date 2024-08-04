@@ -19,7 +19,7 @@ exports.Signup  = async(req,res)=>{
 
         userModel.register(newData,req.body.password).then((R)=>{
             passport.authenticate("local")(req,res,()=>{
-                res.redirect("/login");
+                res.redirect("/");
             });
         });
 

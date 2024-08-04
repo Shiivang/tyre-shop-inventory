@@ -4,20 +4,20 @@
 <% 
     let totalStock = 0;
 
-    tyres.forEach((T) => {
+    ownerT.Tyers.forEach((T) => {
         totalStock += T.stock;
     });
 
-   let totalconst = costm.length; 
+   let totalconst = ownerC.customers.length; 
    let totalsale = 0;
 
-   costm.forEach((C)=>{
+   ownerC.customers.forEach((C)=>{
        C.purchaseHistory.forEach((Q)=>{ 
          totalsale += Q.quantity 
         })
     })
     %>
-    <div class="relative md:w-[89vw] w-full h-[90vh] p-2 bg-[#e8eddf] py-2 shadow-md rounded-xl flex flex-col overflow-scroll  gap-3">
+    <div class="relative md:w-[89vw] w-full h-[90vh] p-2 bg-[#e8eddf] py-2 shadow-md rounded-xl flex flex-col  gap-3">
         <h1 class=" text-3xl w-full rounded-lg md:w-[87vw]  glass font-semibold text-center bg-[#e8eddf] p-2">HOME</h1>
 
 <div class=" w-full h-[93%] flex flex-col md:flex-row gap-3 " >
@@ -65,7 +65,7 @@
         
        
           <div id="hello" class="overflow-scroll p-0 md:p-2 "> 
-            <% tyres.forEach((B)=>{ %>
+            <% ownerT.Tyers.forEach((B)=>{ %>
               <%
               let doo = "block"
                if (B.stock < 1) {
@@ -89,7 +89,7 @@
         <% 
         let stockClass = 'text-gray-800'; 
         %>
-        <% tyres.forEach((T) => { %>
+        <% ownerT.Tyers.forEach((T) => { %>
           <%if(T.stock < 20){%>
             <% if (T.stock < 5) {
               stockClass = 'text-red-500';
