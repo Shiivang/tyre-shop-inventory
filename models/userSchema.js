@@ -16,7 +16,10 @@ const ownerModel = mongoose.Schema({
         // required: true,
         minlength: 6
       },
-      email: String,
+      email: {
+        type : String ,
+        unique: true 
+      },
       firstName: {
         type: String,
         trim: true,
@@ -28,7 +31,9 @@ const ownerModel = mongoose.Schema({
         maxlength: 50
       },
       customers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'customer',}],
-      Tyers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Tyre',}]
+      Tyers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Tyre',}] ,
+      stores: [{ type: mongoose.Schema.Types.ObjectId, ref: 'store',}]
+
 });
 
 ownerModel.plugin(plm);

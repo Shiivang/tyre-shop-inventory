@@ -3,6 +3,7 @@ const localStategy = require('passport-local');
 const userModel = require('../models/userSchema');
 const CustomerModel = require("../models/costomerSchema");
 const tyreModel = require("../models/tyreSchema");
+const storeModel = require("../models/storeScchema");
 
 passport.use(new localStategy(userModel.authenticate()))
 
@@ -19,7 +20,7 @@ exports.Signup  = async(req,res)=>{
 
         userModel.register(newData,req.body.password).then((R)=>{
             passport.authenticate("local")(req,res,()=>{
-                res.redirect("/");
+                res.redirect("/storecreate");
             });
         });
 
@@ -46,6 +47,29 @@ exports.Logout = async (req,res,next)=>{
         console.log(error);
     }
 };
+
+exports.AddStore = async (req,res)=>{
+    try {
+        const store = await new storeModel({
+            storename: req.body.storename,
+            email : req.body.email,
+            emailkey: req.body.emailkey,
+            contactno: req.body.contactno,
+            street: req.body.street ,
+            city: req.body.city ,
+            state: req.body.state ,
+            zip: req.body.zip ,
+            owner: req.user._id
+        });
+
+        await store.save();
+        await req.user.stores.push(store._id);
+        await req.user.save();
+        res.redirect("/") ;       
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 exports.Customer = async (req,res)=>{
    

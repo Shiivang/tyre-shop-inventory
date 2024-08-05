@@ -1,0 +1,49 @@
+<div
+role="alert"
+class=" fixed z-[999] w-full h-[8vh] md:w-[88.9vw] md:h-[8vh] top-2 right-0 bg-zinc-300 pr-4 p-2 rounded-xl flex items-center justify-between"
+>
+<% 
+let StoreName = 0 ;
+
+ownerS.stores.forEach((S)=>{
+ StoreName = S.storename
+})
+
+
+%>
+
+<h1 class="text-[3vmax] md:text-[3vmax] text-gray-700 font-semibold font-mono" ><%= StoreName %></h1>
+
+<div
+class="flex h-full w-[8rem] items-center justify-center rounded-[1.5rem] bg-zinc-500 group relative overflow-hidden"
+>
+<a href="">
+<div
+        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[1rem] font-bold duration-300 group-hover:-translate-y-[300%]"
+      >
+      <svg
+      viewBox="0 0 48 48"
+      fill="none"
+      height="48"
+      width="48"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M37.99 38.293C37.785 34.785 34.733 32 31 32H17c-3.735 0-6.786 2.785-6.99 6.293m27.98 0A19.94 19.94 0 0 0 44 24c0-11.046-8.954-20-20-20S4 12.954 4 24a19.94 19.94 0 0 0 6.01 14.293m27.98 0A19.935 19.935 0 0 1 24 44a19.935 19.935 0 0 1-13.99-5.707M30 20a6 6 0 1 1-12 0 6 6 0 0 1 12 0Z"
+        stroke-width="2"
+        stroke-linejoin="round"
+        stroke-linecap="round"
+        stroke="#D4D5D8"
+      ></path>
+    </svg>
+      </div>
+      <p
+      class="absolute left-1/2 top-1/2 h-fit w-fit text-gray-100 -translate-x-1/2 translate-y-[150%] text-left text-[1rem] font-bold duration-300 group-hover:-translate-y-1/2"
+    >
+     Profile
+    </p>
+</a>
+  </div>
+
+
+</div>

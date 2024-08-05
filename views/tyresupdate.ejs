@@ -2,14 +2,14 @@
 
 <div class="relative w-full h-[100vh] bg-[#F3F7EC]">
   <%- include("./nav") %>
-
+ 
 <form 
 class="px-7 h-screen grid justify-center items-center"
 action="/tyres/tyre-update/<%= tyres._id %>"
 method="post"
 >
     <div class="grid gap-6" >
-      <h1 class="text-3xl ">Update Tyer</h1>
+      <h1 class="text-3xl ">Update Item</h1>
       <h2>Details</h2>
 
       <div class="w-full flex gap-3">
@@ -58,7 +58,7 @@ method="post"
       <button 
       class="outline-none glass shadow-2xl  w-full p-3  bg-[#ffffff42] hover:border-[#035ec5] hover:border-solid hover:border-[1px]  hover:text-[#035ec5] font-bold" 
      >
-     Add Customer
+     Update Item
     </button>
     </div>
   </form>
