@@ -34,7 +34,8 @@ exports.Login = async(req,res)=>{
 
 exports.NewCustomer = async(req,res)=>{
     try {
-        const tyreo = await tyreModel.find().populate("owner");
+        const tyreo = await ownerModel.findById(req.user._id).populate("Tyers");
+
         res.render("createCtmr" , { tyres: tyreo ,user : req.user });      
     } catch (error) {
         console.log(error)

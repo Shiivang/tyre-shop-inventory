@@ -1,5 +1,6 @@
 const tyreModel = require("../models/tyreSchema");
 const costomerModel = require("../models/costomerSchema");
+const ownerModel = require("../models/userSchema");
 
 exports.TyerUpdate = async(req,res)=>{
     try {
@@ -44,7 +45,7 @@ exports.CustomerUpdate = async(req,res)=>{
         });
 
         const MOD = await tyreModel.findOne({_id :  tyreId });
-        const Tall = await tyreModel.find();
+        const Tall = await ownerModel.findById(req.user._id).populate("Tyers");
           
 
         res.render("UpdateCtmr" , {customer : customer , quantity :quantity1 ,MOD : MOD ,Tall : Tall , user : req.user});

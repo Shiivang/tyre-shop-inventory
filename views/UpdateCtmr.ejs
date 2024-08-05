@@ -93,7 +93,7 @@ method="post"
        <select name="tyermodel" id="tyermodel" class="p-3 shadow-2xl   glass w-full text-black placeholder:text-black outline-none focus:border-solid focus:border-[1px]border-[#035ec5]" 
        >
        <option value="<%= MOD.model %>">Model <%= MOD.model %></option>
-       <% Tall.forEach((TT)=>{%>
+       <% Tall.Tyers.forEach((TT)=>{%>
         
         <option value="<%= TT.model %>">Model <%= TT.model %></option>
         <%})%>

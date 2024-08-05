@@ -81,7 +81,8 @@ method="post"
   >
   <select name="tyermodel" id="tyermodel"  class="p-3 shadow-2xl   glass w-full text-black placeholder:text-black outline-none focus:border-solid focus:border-[1px]border-[#035ec5]" 
   >
-  <% tyres.forEach((T)=>{%>
+  <option value="">Model</option>
+  <% tyres.Tyers.forEach((T)=>{%>
    
     <option value="<%= T.model %>">Model <%= T.model %></option>
   
