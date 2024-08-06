@@ -1,0 +1,48 @@
+<%- include("./parcials/header") %>
+
+<div class="relative w-[100vw] h-[100vh] bg-[#F3F7EC]">
+    <div
+  class=" fixed w-[10vh] h-[7vh] top-2 right-2 w-[8rem] items-center justify-center rounded-[1.5rem] bg-zinc-500 group  overflow-hidden"
+  >
+  <a href="/login">
+    <div
+            class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[1rem] font-bold duration-300 group-hover:-translate-y-[300%]"
+          >
+          <img width="48" height="48" src="https://img.icons8.com/fluency-systems-regular/339AF0/48/circled-left.png" alt="circled-left"/>        
+          </div>  
+          <p
+          class="absolute left-1/2 top-1/2 h-fit w-fit text-[#339AF0] -translate-x-1/2 translate-y-[150%] text-left text-[1rem] font-bold duration-300 group-hover:-translate-y-1/2"
+        >
+        Back
+        </p>
+    </a>
+</div>
+<form 
+class=" px-7 w-full h-screen flex justify-center items-center"
+action="/forgot/updatepassword/<%= id %>"
+method="post"
+>
+    <div class="grid gap-6 md:w-1/2 w-full  "  >
+      <h1 class="text-3xl ">Rgister Email</h1>
+      <h2>Details</h2>
+     
+      <div class="grid gap-6 w-full">
+       
+        <input 
+        class="p-3 shadow-2xl   glass w-full text-black placeholder:text-black outline-none focus:border-solid focus:border-[1px]border-[#035ec5]" 
+        type="password" placeholder="Enter New Password" name="password"
+     >
+   
+      </div>
+    
+      <button 
+      class="outline-none glass shadow-2xl  w-full p-3  bg-[#ffffff42] hover:border-[#035ec5] hover:border-solid hover:border-[1px]  hover:text-[#035ec5] font-bold" 
+     >
+     Change Password
+    </button>
+    </div>
+  </form>
+
+</div>
+
+<%- include("./parcials/footer") %>

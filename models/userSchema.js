@@ -32,7 +32,12 @@ const ownerModel = mongoose.Schema({
       },
       customers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'customer',}],
       Tyers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Tyre',}] ,
-      stores: [{ type: mongoose.Schema.Types.ObjectId, ref: 'store',}]
+      stores: [{ type: mongoose.Schema.Types.ObjectId, ref: 'store',}] ,
+      
+      resetPasswordToken: {
+        type: Number,
+        default:0,
+      },
 
 });
 

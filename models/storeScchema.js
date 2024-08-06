@@ -8,7 +8,7 @@ const storeSchema = new mongoose.Schema({
          },
     email: { 
         type: String, 
-         unique: true 
+         
         },
     emailkey: {
          type: String

@@ -4,6 +4,7 @@ const userModel = require('../models/userSchema');
 const CustomerModel = require("../models/costomerSchema");
 const tyreModel = require("../models/tyreSchema");
 const storeModel = require("../models/storeScchema");
+const nodemailer = require("nodemailer");
 
 passport.use(new localStategy(userModel.authenticate()))
 
@@ -118,6 +119,43 @@ exports.Customer = async (req,res)=>{
 
     await customer.save();
     await tire.save();
+
+    const ownerE = await userModel.findById(req.user._id).populate("stores");
+
+     const userEmail = await String(ownerE.stores[0].email);
+     const userEmailkey = await String(ownerE.stores[0].emailkey);
+
+
+    const transport = nodemailer.createTransport({
+        service : "gmail" , 
+        auth :{
+          user :  userEmail,
+          pass : userEmailkey
+        }
+      })
+    
+      const mailOptions = {
+        form : ownerE.stores[0].storename ,
+        to : req.body.email ,
+        subject : "invoice" ,
+        html : ` <h1>Name: ${req.body.firstName , req.body.lastName}</h1> ,
+        <h1>Phone: ${req.body.phone}</h1> ,
+        <h1>Addrese: ${req.body.street ,
+        req.body.city ,
+        req.body.state ,
+         req.body.zip },
+        Model ${ req.body.tyermodel}</h1>`
+      }
+    
+      transport.sendMail(mailOptions,(err)=>{
+        if(err){
+          console.log(err)
+          res.send(err)
+          return
+        }
+       
+    });
+
 
     res.redirect("/recordCtmr");
           
