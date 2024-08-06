@@ -1,5 +1,5 @@
 var express = require('express');
-const { Register, Homepage , Login , NewCustomer, Tyres, TyresStocke, Records ,NewStore ,DetailsUpdate ,ownerDetailsUpdate ,storeDetailsUpdate} = require('../controllers/getCont');
+const { Register, Homepage , Login , NewCustomer, Tyres, TyresStocke, Records ,NewStore ,DetailsUpdate ,ownerDetailsUpdate ,storeDetailsUpdate, ResetPassword} = require('../controllers/getCont');
 const { isloggedin, isNotAuthenticated } = require('../utils/meddelware');
 var router = express.Router();
 
@@ -25,6 +25,6 @@ router.get("/tyreStoke" , isloggedin , TyresStocke);
 
 router.get("/recordCtmr" , isloggedin , Records );
 
-
+router.get("/reset-password/:id" ,isloggedin , ResetPassword );
 
 module.exports = router;

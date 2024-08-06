@@ -3,6 +3,22 @@
 <div class=" relative w-full  h-[100vh] bg-[#F3F7EC]">
   <%- include("./nav") %>
 
+  <div
+  class=" fixed w-[10vh] h-[7vh] top-2 right-2 w-[8rem] items-center justify-center rounded-[1.5rem] bg-zinc-500 group  overflow-hidden"
+  >
+  <a href="/reset-password/<%= ownerS._id %>">
+    <div
+            class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[1rem] font-bold duration-300 group-hover:-translate-y-[300%]"
+          >
+          <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/90e0ef/lock-orientation.png" alt="lock-orientation"/>
+          </div>  
+          <p
+          class="absolute left-1/2 top-1/2 h-fit w-fit text-[#90e0ef] -translate-x-1/2 translate-y-[150%] text-left text-[1rem] font-bold duration-300 group-hover:-translate-y-1/2"
+        >
+         Reset Password
+        </p>
+    </a>
+</div>
 <form 
 class="px-7  h-screen grid justify-center items-center"
 action="/tyres/owner-DetailsUpdate/<%= ownerS._id %>"

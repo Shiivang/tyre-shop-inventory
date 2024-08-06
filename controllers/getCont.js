@@ -42,7 +42,6 @@ exports.ownerDetailsUpdate = async(req,res)=>{
     }
 }
 
-
 exports.storeDetailsUpdate = async(req,res)=>{
     try {
         const ownerS = await  ownerModel.findById(req.user._id).populate("stores");
@@ -111,3 +110,12 @@ exports.Records = async(req,res)=>{
         console.log(error)
     }
 }
+
+exports.ResetPassword = async function(req,res){
+    try {
+        res.render("resetPassword" ,{user : req.user , onProfile  : true })
+    } catch (error) {
+        console.log(error);
+    }
+     
+    }

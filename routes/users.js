@@ -1,5 +1,5 @@
 var express = require('express');
-const { Signup , Signin, Logout ,Customer, Tyerss ,AddStore} = require('../controllers/postCont');
+const { Signup , Signin, Logout ,Customer, Tyerss ,AddStore, Passwordreset} = require('../controllers/postCont');
 const { isloggedin } = require('../utils/meddelware');
 var router = express.Router();
 
@@ -15,6 +15,7 @@ router.post("/customer-form",isloggedin, Customer);
 
 router.post("/addtyres",isloggedin, Tyerss);
 
+router.post("/reset-password/:id" ,isloggedin , Passwordreset ); 
 
 
 

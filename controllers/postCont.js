@@ -150,3 +150,18 @@ exports.Tyerss = async (req,res,next)=>{
         console.log(error);
     }
 };
+
+exports.Passwordreset = async function(req,res){
+    try {
+      await req.user.changePassword(
+        req.body.oldpassword, 
+        req.body.newpassword
+      )
+      await req.user.save();
+      res.redirect('/')
+    } catch (error) {
+      console.log(error);
+    }
+
+    }
+  
