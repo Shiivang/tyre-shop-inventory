@@ -1,7 +1,13 @@
 var express = require('express');
 const { isloggedin } = require('../utils/meddelware');
-const { TyerUpdate, Tyer_Update, TyerDelete, CustomerUpdate, Customer_Update, CustomerDelete } = require('../controllers/updatedeleteCont');
+const { TyerUpdate, Tyer_Update, TyerDelete, CustomerUpdate, Customer_Update, CustomerDelete ,Owner_Update , Owner_Delete , Store_Update, Store_Delete } = require('../controllers/updatedeleteCont');
 var router = express.Router();
+
+router.post("/owner-DetailsUpdate/:id" , isloggedin, Owner_Update );
+
+router.get("/delete-owner/:id" , isloggedin, Owner_Delete );
+
+router.post("/store-DetailsUpdate/:id" , isloggedin, Store_Update);
 
 router.get("/update/:id", isloggedin, TyerUpdate );
 

@@ -1,0 +1,97 @@
+<%- include("./parcials/header") %>
+
+<div class="relative w-full h-[100vh] bg-[#F3F7EC]">
+ 
+<form 
+class="px-7 md:py-7 pb-28 py-20 h-screen grid justify-center items-center"
+action="/tyres/store-DetailsUpdate/<%= ownerS.stores[0]._id %>"
+method="post"
+>
+<h1 class="text-3xl ">Update Store</h1>
+    <div class="grid gap-6" >
+      <h2>Store Details</h2>
+      
+      <div class="grid gap-6 w-full">
+        <input 
+        class="p-3 shadow-2xl  glass w-full placeholder:text-black outline-none focus:border-solid border-[#035ec5] focus:border-[1px]" 
+        type="text" 
+        placeholder="Store-Name" 
+        name="storename"
+        value="<%= ownerS.stores[0].storename %>"
+        > 
+        <input 
+        class="p-3 shadow-2xl  glass w-full placeholder:text-black outline-none focus:border-solid border-[#035ec5] focus:border-[1px]" 
+        type="text" 
+        placeholder="Email" 
+        name="email"
+        value="<%= ownerS.stores[0].email %>"
+
+        >
+        <input 
+        class="p-3 shadow-2xl  glass w-full placeholder:text-black outline-none focus:border-solid border-[#035ec5] focus:border-[1px]" 
+        type="text" 
+        placeholder="Email-key" 
+        name="emailkey"
+        value="<%= ownerS.stores[0].emailkey %>"
+
+        >
+        <input 
+        class="p-3 shadow-2xl   glass w-full text-black placeholder:text-black outline-none focus:border-solid focus:border-[1px]border-[#035ec5]" 
+        type="text" 
+         name="contactno"
+        placeholder="Phone Number"
+        value="<%= ownerS.stores[0].contactno %>"
+
+       >
+       <h2>Store Address</h2>
+       <input 
+       class="p-3 shadow-2xl   glass w-full text-black placeholder:text-black outline-none focus:border-solid focus:border-[1px]border-[#035ec5]" 
+       type="text" 
+       name="street" 
+       placeholder="Street"
+       value="<%= ownerS.stores[0].street %>"
+
+      >
+      <input 
+      class="p-3 shadow-2xl   glass w-full text-black placeholder:text-black outline-none focus:border-solid focus:border-[1px]border-[#035ec5]" 
+      type="text" 
+      name="city"
+     placeholder="City"
+     value="<%= ownerS.stores[0].city %>"
+
+     >
+     <div class="w-full flex gap-3">
+     <input 
+     class="p-3 shadow-2xl   glass w-full text-black placeholder:text-black outline-none focus:border-solid focus:border-[1px]border-[#035ec5]" 
+     type="text" 
+     name="state" 
+     placeholder="State"
+     value="<%= ownerS.stores[0].state %>"
+
+    >
+    <input 
+    class="p-3 shadow-2xl   glass w-full text-black placeholder:text-black outline-none focus:border-solid focus:border-[1px]border-[#035ec5]" 
+    type="text" 
+    name="zip"
+     placeholder="ZIP"
+     value="<%= ownerS.stores[0].zip %>"
+
+   >
+  </div>
+   
+  
+      </div>
+           
+      <button 
+      class="outline-none glass shadow-2xl  w-full p-3  bg-[#ffffff42] hover:border-[#035ec5] hover:border-solid hover:border-[1px]  hover:text-[#035ec5] font-bold" 
+     >
+     Update Store
+    </button>
+    </div>
+
+  </form>
+
+</div>
+
+<%- include("./parcials/footer") %>  
+ 

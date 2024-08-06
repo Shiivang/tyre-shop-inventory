@@ -1,11 +1,12 @@
 const tyreModel = require("../models/tyreSchema");
 const costomerModel = require("../models/costomerSchema");
 const ownerModel = require("../models/userSchema");
+const storeModel = require("../models/storeScchema");
 
 exports.TyerUpdate = async(req,res)=>{
     try {
         const tyreo = await tyreModel.findById(req.params.id);
-        res.render("tyresupdate" ,{tyres : tyreo , user : req.user} );
+        res.render("tyresupdate" ,{tyres : tyreo , user : req.user ,onProfile  : false} );
  } catch (error) {
         console.log(error)
     }
@@ -48,7 +49,7 @@ exports.CustomerUpdate = async(req,res)=>{
         const Tall = await ownerModel.findById(req.user._id).populate("Tyers");
           
 
-        res.render("UpdateCtmr" , {customer : customer , quantity :quantity1 ,MOD : MOD ,Tall : Tall , user : req.user});
+        res.render("UpdateCtmr" , {customer : customer , quantity :quantity1 ,MOD : MOD ,Tall : Tall , user : req.user , onProfile  : false});
  } catch (error) {
         console.log(error)
     }
@@ -112,3 +113,40 @@ exports.CustomerDelete = async(req,res)=>{
     }
 }
 
+exports.Owner_Update = async(req,res)=>{
+    try {
+        const updateOwenr = await ownerModel.findByIdAndUpdate(req.params.id , req.body);
+
+        await updateOwenr.save()
+        res.redirect("/detailsupdate");
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+exports.Owner_Delete = async(req,res)=>{
+    try { 
+
+       
+        await ownerModel.findByIdAndDelete(req.params.id);
+
+ 
+        res.redirect("/login")
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+exports.Store_Update = async(req,res)=>{
+    try {
+        const updateStore = await storeModel.findByIdAndUpdate(req.params.id , req.body);
+
+        await updateStore.save()
+        res.redirect("/detailsupdate");
+
+    } catch (error) {
+        console.log(error);
+    }
+}

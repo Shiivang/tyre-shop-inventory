@@ -17,32 +17,49 @@ ownerS.stores.forEach((S)=>{
 <div
 class="flex h-full w-[8rem] items-center justify-center rounded-[1.5rem] bg-zinc-500 group relative overflow-hidden"
 >
-<a href="">
-<div
-        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[1rem] font-bold duration-300 group-hover:-translate-y-[300%]"
-      >
-      <svg
-      viewBox="0 0 48 48"
-      fill="none"
-      height="48"
-      width="48"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M37.99 38.293C37.785 34.785 34.733 32 31 32H17c-3.735 0-6.786 2.785-6.99 6.293m27.98 0A19.94 19.94 0 0 0 44 24c0-11.046-8.954-20-20-20S4 12.954 4 24a19.94 19.94 0 0 0 6.01 14.293m27.98 0A19.935 19.935 0 0 1 24 44a19.935 19.935 0 0 1-13.99-5.707M30 20a6 6 0 1 1-12 0 6 6 0 0 1 12 0Z"
-        stroke-width="2"
-        stroke-linejoin="round"
-        stroke-linecap="round"
-        stroke="#D4D5D8"
-      ></path>
-    </svg>
-      </div>
-      <p
-      class="absolute left-1/2 top-1/2 h-fit w-fit text-gray-100 -translate-x-1/2 translate-y-[150%] text-left text-[1rem] font-bold duration-300 group-hover:-translate-y-1/2"
-    >
-     Profile
-    </p>
-</a>
+
+
+  <% if(onProfile){%>
+    <a href="/users/logout">
+      <div
+              class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[1rem] font-bold duration-300 group-hover:-translate-y-[300%]"
+            >
+            <img width="24" height="24" src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/24/FFC544/external-Log-Out-arrows-tanah-basah-basic-outline-tanah-basah.png" alt="external-Log-Out-arrows-tanah-basah-basic-outline-tanah-basah"/>
+            </div>
+            <p
+            class="absolute left-1/2 top-1/2 h-fit w-fit text-[#FFC544] -translate-x-1/2 translate-y-[150%] text-left text-[1rem] font-bold duration-300 group-hover:-translate-y-1/2"
+          >
+           Logout
+          </p>
+      </a>
+ <%}else{%>
+  <a href="/detailsupdate">
+    <div
+            class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[1rem] font-bold duration-300 group-hover:-translate-y-[300%]"
+          >
+          <svg
+          viewBox="0 0 48 48"
+          fill="none"
+          height="48"
+          width="48"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M37.99 38.293C37.785 34.785 34.733 32 31 32H17c-3.735 0-6.786 2.785-6.99 6.293m27.98 0A19.94 19.94 0 0 0 44 24c0-11.046-8.954-20-20-20S4 12.954 4 24a19.94 19.94 0 0 0 6.01 14.293m27.98 0A19.935 19.935 0 0 1 24 44a19.935 19.935 0 0 1-13.99-5.707M30 20a6 6 0 1 1-12 0 6 6 0 0 1 12 0Z"
+            stroke-width="2"
+            stroke-linejoin="round"
+            stroke-linecap="round"
+            stroke="#D4D5D8"
+          ></path>
+        </svg>
+          </div>
+          <p
+          class="absolute left-1/2 top-1/2 h-fit w-fit text-gray-100 -translate-x-1/2 translate-y-[150%] text-left text-[1rem] font-bold duration-300 group-hover:-translate-y-1/2"
+        >
+         Profile
+        </p>
+    </a>
+    <%}%>
   </div>
 
 
