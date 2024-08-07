@@ -75,6 +75,13 @@ exports.AddStore = async (req,res)=>{
 exports.Customer = async (req,res)=>{
    
     try {
+        const { tyermodel, quantity } = req.body;
+        const tire1 = await tyreModel.findOne({ model: req.body.tyermodel});
+        const tireId = tire1._id ;
+        const tire = await tyreModel.findById(tireId);
+        
+     const bill = await tire.price*quantity
+    
     const customer = new CustomerModel({
         firstName: req.body.firstName ,
         lastName: req.body.lastName ,
@@ -85,6 +92,7 @@ exports.Customer = async (req,res)=>{
         state: req.body.state ,
         zip: req.body.zip ,
         tyermodel: req.body.tyermodel ,
+        bill : bill,
         owner: req.user._id
     });
 
@@ -94,13 +102,11 @@ exports.Customer = async (req,res)=>{
     await req.user.save();
 
     const customerId = customer._id;
-    const { tyermodel, quantity } = req.body;
-    const tire1 = await tyreModel.findOne({ model: req.body.tyermodel});
-
-    const tireId = tire1._id ;
+   
+  
 
     
-    const tire = await tyreModel.findById(tireId);
+   
     if (!tire) return res.json({ error: 'Tire not found' });
 
     // Find the customer and add purchase
@@ -125,7 +131,6 @@ exports.Customer = async (req,res)=>{
      const userEmail = await String(ownerE.stores[0].email);
      const userEmailkey = await String(ownerE.stores[0].emailkey);
 
-     const bill = await tire.price*quantity
 
     
 

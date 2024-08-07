@@ -1,6 +1,7 @@
 const tyreModel = require("../models/tyreSchema");
 const costomerModel = require("../models/costomerSchema");
 const ownerModel = require("../models/userSchema");
+
 exports.Homepage = async(req,res)=>{
     try {
         const ownerT = await ownerModel.findById(req.user._id).populate("Tyers");
@@ -103,7 +104,7 @@ exports.Records = async(req,res)=>{
         // const customer = await costomerModel.find().populate("owner");
         const ownerS = await  ownerModel.findById(req.user._id).populate("stores");
         const owner = await ownerModel.findById(req.user._id).populate("customers");
-        res.render("customerRecored" , { owner : owner,ownerS:ownerS  ,user : req.user ,onProfile  : false});
+        res.render("customerRecored" , { owner : owner, ownerS:ownerS  ,user : req.user ,onProfile  : false});
        
         
     } catch (error) {
@@ -118,4 +119,4 @@ exports.ResetPassword = async function(req,res){
         console.log(error);
     }
      
-    }
+}

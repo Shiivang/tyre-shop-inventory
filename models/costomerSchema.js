@@ -45,6 +45,7 @@ const customerSchema = new mongoose.Schema({
     ],
     owner: { type: mongoose.Schema.Types.ObjectId, ref: 'owner' },
     tyermodel: String ,
+    bill: String ,
     // createdAt: { type: Date, default: Date.now },
   });
 
