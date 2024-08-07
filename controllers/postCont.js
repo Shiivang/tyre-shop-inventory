@@ -125,6 +125,9 @@ exports.Customer = async (req,res)=>{
      const userEmail = await String(ownerE.stores[0].email);
      const userEmailkey = await String(ownerE.stores[0].emailkey);
 
+     const bill = await tire.price*quantity
+
+    
 
     const transport = nodemailer.createTransport({
         service : "gmail" , 
@@ -135,16 +138,24 @@ exports.Customer = async (req,res)=>{
       })
     
       const mailOptions = {
-        form : ownerE.stores[0].storename ,
+        form : `${ownerE.stores[0].storename} thanking you<${ownerE.stores[0].storename}.pvt.ltd> `,
         to : req.body.email ,
         subject : "invoice" ,
-        html : ` <h1>Name: ${req.body.firstName , req.body.lastName}</h1> ,
-        <h1>Phone: ${req.body.phone}</h1> ,
-        <h1>Addrese: ${req.body.street ,
-        req.body.city ,
-        req.body.state ,
-         req.body.zip },
-        Model ${ req.body.tyermodel}</h1>`
+        html : `<h4>Name:</h4><h4>${req.body.firstName} ${req.body.lastName}</h4>
+
+          <h4>Phone:</h4><h4>${req.body.phone}</h4>
+
+          <h4>Address:</h4><h4>${req.body.street}, ${req.body.city}, ${req.body.state}, ${req.body.zip}</h4>
+
+          <h4>Model:</h4><h4>${req.body.tyermodel}</h4>
+
+          <h4>Total Amount:</h4><h2>₹${bill}</h2>
+        
+
+          <p>Thank you for your business!</p>
+          <p>If you have any questions, feel free to contact us.${ownerE.stores[0].contactno} ,email - ${ownerE.stores[0].email}</p>
+
+        `
       }
     
       transport.sendMail(mailOptions,(err)=>{
