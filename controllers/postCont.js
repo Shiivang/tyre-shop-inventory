@@ -133,7 +133,7 @@ exports.Customer = async (req,res)=>{
 
 
     
-
+if(userEmail , userEmailkey){
     const transport = nodemailer.createTransport({
         service : "gmail" , 
         auth :{
@@ -170,11 +170,13 @@ exports.Customer = async (req,res)=>{
           return
         }
        
+    res.redirect("/recordCtmr");
     });
 
+}else{
 
     res.redirect("/recordCtmr");
-          
+}
     } catch (error) {
         console.log(error);
     }
