@@ -25,7 +25,7 @@ exports.EMAILFORGOT =  async function (req, res, next) {
         sendmail(res,user,url);
   
       } else {
-        res.redirect("mailforForgot-pass");
+        res.redirect("/forgot");
       }
     } catch (error) {
       res.send(error);
