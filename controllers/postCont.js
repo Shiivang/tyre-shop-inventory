@@ -143,7 +143,7 @@ exports.Customer = async (req,res)=>{
       })
     
       const mailOptions = {
-        form : `${ownerE.stores[0].storename} thanking you<${ownerE.stores[0].storename}.pvt.ltd> `,
+        form : `${ownerE.stores[0].storename} <${ownerE.stores[0].storename}@store.pvt.ltd> `,
         to : req.body.email ,
         subject : "invoice" ,
         html : `<h4>Name:</h4><h4>${req.body.firstName} ${req.body.lastName}</h4>
