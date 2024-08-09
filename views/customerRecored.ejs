@@ -22,7 +22,7 @@
          <% C.purchaseHistory.forEach((item) => { %>
             <p class="capitalize text-md text-gray-700 mt-2 mb-2 font-semibold"> <span class="text-gray-500">model - </span> <%= C.tyermodel %>     &#160; &#160;<span class="text-gray-500">Quantity: </span><%= item.quantity %></p> 
             
-            <p class="capitalize text-md text-gray-700 mt-2 mb-2 font-semibold"> <span class="text-gray-500">Date - </span><%= item.purchaseDate.toLocaleDateString() %> &#160; &#160;<span class="text-gray-500">Total Amount:  </span> <%= C.bill %></p>
+            <p class="capitalize text-md text-gray-700 mt-2 mb-2 font-semibold"> <span class="text-gray-500">Date - </span><%= item.purchaseDate.toLocaleDateString() %> &#160; &#160;<span class="text-gray-500">Total Amount:  </span> ₹<%= C.bill %>/-</p>
         <% }) %>               
                 
                    <div class="absolute bottom-2 right-2 flex justify-end gap-3 px-3 mt-4 md:mt-0  " >
