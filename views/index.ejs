@@ -96,6 +96,8 @@
           <%if(T.stock < 20){%>
             <% if (T.stock < 5) {
               stockClass = 'text-red-500';
+            } else {
+              stockClass = 'text-gray-800'
             } %>
         <p class="text-lg md:text-3xl text-gray-700 "><%= T.model %> - <span class="<%= stockClass%>" ><%= T.stock %></span>.unit </p>
        
